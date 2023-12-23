@@ -1,0 +1,30 @@
+<div class="author">
+    <h1 class="author_heading"> Hi, I am Basi.</h1>
+    <p class="author_body">Web developer and content creator.</p>
+</div>
+
+<img src="https://picsum.photos/id/237/200/300" alt="person looking out through window" class="hero-image" width="650" height="320">
+
+<section class="articles">
+    <h2 class="articles_heading"> Latest Posts</h2>
+    
+    <ul class="articles_ul">
+
+        <% data.forEach(post => { %>
+            <li>
+                <a href="/post/<%=post._id %>">
+                    <span><%= post.title %></span>
+                    <span class="articles-list_date"><%= post.createdAT ? new Date(post.createdAT).toDateString() : 'No Date' %></span>
+
+                </a>
+            </li>
+        <% }) %>
+        
+
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+    <% } %>
+
+</section>
